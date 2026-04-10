@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Crown Vics | Maine's Favorite Rock 'n' Roll Dance Band</title>
+  <meta name="description" content="The Crown Vics are Maine's rock 'n' roll dance band. Based in Ellsworth, ME. Book us for shows, events, and private parties.">
+  <meta property="og:title" content="The Crown Vics | Maine's Favorite Rock 'n' Roll Dance Band">
+  <meta property="og:description" content="The Crown Vics are Maine's rock 'n' roll dance band. Based in Ellsworth, ME. Book us for shows, events, and private parties.">
+  <meta property="og:image" content="https://thecrownvics.com/og-image.jpg">
+  <meta property="og:url" content="https://thecrownvics.com">
+  <meta property="og:type" content="website">
+  <!-- Favicon: inline SVG crown -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='10,70 25,30 40,55 50,15 60,55 75,30 90,70' fill='%23c9922a'/><rect x='10' y='70' width='80' height='12' rx='3' fill='%23c9922a'/></svg>">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Bebas+Neue&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    /* ================================================================
+       THE CROWN VICS — MAIN SITE STYLES
+       Colors: background #0a0806, red #c9272a, gold #c9922a, cream #f0e8d0
+       Fonts: Bebas Neue (headlines), Barlow Condensed (body), Special Elite (labels)
+       ================================================================ */
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #0a0806;
+      color: #f0e8d0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- SCROLLBAR --- */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0806; }
+    ::-webkit-scrollbar-thumb { background: #c9272a; border-radius: 4px; }
+
+    /* --- TYPOGRAPHY --- */
+    h1, h2, h3 { font-family: 'Bebas Neue', cursive; letter-spacing: 0.05em; line-height: 1.1; }
+    .eyebrow { font-family: 'Special Elite', cursive; text-transform: uppercase; letter-spacing: 0.15em; color: #c9922a; font-size: 0.85rem; }
+
+    a { color: #c9922a; text-decoration: none; transition: color 0.3s; }
+    a:hover { color: #f0e8d0; }
+
+    /* --- NAV --- */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: transparent;
+      transition: background 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(10, 8, 6, 0.97);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.4rem;
+      color: #f0e8d0;
+      letter-spacing: 0.1em;
+    }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #f0e8d0;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+      background: #c9272a; transition: width 0.3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: #c9922a; }
+
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; z-index: 1001;
+    }
+    .hamburger span {
+      display: block; width: 28px; height: 2px; background: #f0e8d0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* --- MOBILE NAV --- */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
+        flex-direction: column; background: rgba(10,8,6,0.98);
+        padding: 5rem 2rem; gap: 2rem;
+        transition: right 0.4s;
+      }
+      .nav-links.open { right: 0; }
+      .nav-links a { font-size: 1.2rem; }
+    }
+
+    /* --- SECTIONS --- */
+    section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: #f0e8d0;
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      font-family: 'Special Elite', cursive;
+      color: #c9922a;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .section-divider {
+      width: 60px; height: 3px; background: #c9272a; margin-bottom: 2rem;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      position: relative;
+      height: 100vh; min-height: 600px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      max-width: 100%; padding: 2rem;
+      overflow: hidden;
+    }
+    /* Scanline overlay */
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent, transparent 2px,
+        rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px
+      );
+      pointer-events: none; z-index: 1;
+    }
+    /* Grain texture */
+    .hero::after {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1;
+      animation: grain 0.5s steps(1) infinite;
+    }
+    @keyframes grain {
+      0%, 100% { transform: translate(0, 0); }
+      10% { transform: translate(-2%, -2%); }
+      30% { transform: translate(3%, -1%); }
+      50% { transform: translate(-1%, 3%); }
+      70% { transform: translate(2%, 1%); }
+      90% { transform: translate(-3%, 2%); }
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero h1 {
+      font-size: clamp(4rem, 12vw, 10rem);
+      color: #f0e8d0;
+      text-shadow: 0 0 60px rgba(201, 39, 42, 0.3);
+      margin-bottom: 0.5rem;
+    }
+    .hero-tagline {
+      font-family: 'Special Elite', cursive;
+      font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+      color: #c9922a;
+      letter-spacing: 0.1em;
+      margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* --- BUTTONS --- */
+    .btn {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.85rem 2rem;
+      border: 2px solid;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-primary {
+      background: #c9272a; border-color: #c9272a; color: #f0e8d0;
+    }
+    .btn-primary:hover {
+      background: transparent; color: #c9272a;
+    }
+    .btn-secondary {
+      background: transparent; border-color: #c9922a; color: #c9922a;
+    }
+    .btn-secondary:hover {
+      background: #c9922a; color: #0a0806;
+    }
+    .btn-disabled {
+      background: transparent; border-color: #555; color: #555; cursor: not-allowed;
+      position: relative;
+    }
+    .btn-disabled:hover { background: transparent; color: #555; border-color: #555; }
+
+    /* Tooltip */
+    [data-tooltip] { position: relative; }
+    [data-tooltip]:hover::after {
+      content: attr(data-tooltip);
+      position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%);
+      background: #222; color: #f0e8d0; padding: 0.4rem 0.8rem; border-radius: 4px;
+      font-size: 0.8rem; white-space: nowrap; font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 400; text-transform: none; letter-spacing: 0;
+    }
+
+    /* --- ABOUT --- */
+    .about-text {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      max-width: 800px;
+      color: #d4cbb8;
+    }
+
+    /* --- BAND MEMBERS --- */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .member-card { text-align: center; }
+    .member-photo {
+      width: 100%; aspect-ratio: 3/4;
+      background: #1a1714;
+      border: 2px solid #2a2520;
+      margin-bottom: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      color: #555; font-size: 0.8rem;
+      font-family: 'Special Elite', cursive;
+      overflow: hidden;
+    }
+    .member-number {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3rem;
+      color: #c9272a;
+      opacity: 0.3;
+      line-height: 1;
+    }
+    .member-name {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.5rem;
+      color: #f0e8d0;
+      margin-bottom: 0.2rem;
+    }
+    .member-role {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.85rem;
+      color: #c9922a;
+    }
+
+    /* --- MUSIC --- */
+    .spotify-embed {
+      width: 100%; max-width: 700px;
+      margin-bottom: 2rem;
+    }
+    .spotify-embed iframe { width: 100%; height: 352px; border: none; border-radius: 12px; }
+
+    .streaming-badges {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .streaming-badges a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 0.9rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid #333;
+      color: #c9922a;
+      transition: all 0.3s;
+    }
+    .streaming-badges a:hover {
+      border-color: #c9922a; background: rgba(201,146,42,0.1);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+    .video-grid .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%; height: 0;
+    }
+    .video-grid .video-wrap iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* --- TWITCH LIVESTREAM --- */
+    .livestream-section {
+      background: #111;
+      padding: 4rem 2rem;
+      max-width: 100%;
+    }
+    .livestream-inner {
+      max-width: 1200px; margin: 0 auto;
+    }
+    .twitch-embed {
+      position: relative;
+      padding-bottom: 56.25%; height: 0;
+      margin-top: 2rem;
+    }
+    .twitch-embed iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* --- SHOWS --- */
+    .shows-list { display: flex; flex-direction: column; gap: 1rem; }
+    .show-card {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #1a1714;
+      border-left: 4px solid #c9272a;
+      padding: 1.2rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+      transition: background 0.3s;
+    }
+    .show-card:hover { background: #221f1a; }
+    .show-date {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.3rem; color: #c9272a;
+      min-width: 120px;
+    }
+    .show-info { flex: 1; min-width: 200px; }
+    .show-venue {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.2rem; color: #f0e8d0;
+    }
+    .show-city {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.85rem; color: #999;
+    }
+    .show-notes {
+      font-size: 0.85rem; color: #888;
+      font-style: italic; margin-top: 0.25rem;
+    }
+    .no-shows {
+      text-align: center; padding: 3rem; color: #888;
+      font-size: 1.1rem;
+    }
+    .no-shows a { color: #c9922a; }
+
+    /* --- PRESS --- */
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .press-quote {
+      border-left: 3px solid #c9272a;
+      padding: 1.5rem;
+      background: #1a1714;
+    }
+    .press-quote blockquote {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #d4cbb8;
+      margin-bottom: 0.8rem;
+      line-height: 1.7;
+    }
+    .press-quote cite {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.85rem;
+      color: #c9922a;
+      font-style: normal;
+    }
+    .press-outlets {
+      display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;
+      padding-top: 2rem; border-top: 1px solid #2a2520;
+    }
+    .press-outlets span {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.9rem;
+      color: #666;
+      letter-spacing: 0.05em;
+    }
+
+    /* --- EPK / BOOK US --- */
+    .epk-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .epk-section { grid-template-columns: 1fr; }
+    }
+    .epk-bio {
+      font-size: 1.05rem; line-height: 1.8; color: #d4cbb8;
+    }
+    .epk-actions {
+      display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;
+    }
+
+    /* --- MAILING LIST --- */
+    .mailing-section {
+      text-align: center;
+      padding: 5rem 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .mailing-section p {
+      color: #999; margin-bottom: 1.5rem; font-size: 1.05rem;
+    }
+    .mailing-form {
+      display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;
+    }
+    .mailing-form input[type="email"] {
+      flex: 1; min-width: 250px;
+      padding: 0.8rem 1rem;
+      background: #1a1714; border: 1px solid #333; color: #f0e8d0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .mailing-form input[type="email"]:focus { border-color: #c9922a; }
+    .mailing-form button {
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid #1a1714;
+    }
+    .footer-socials {
+      display: flex; justify-content: center; gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-socials a {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid #333;
+      border-radius: 50%;
+      color: #999;
+      font-size: 0.75rem;
+      font-family: 'Special Elite', cursive;
+      transition: all 0.3s;
+    }
+    .footer-socials a:hover { border-color: #c9922a; color: #c9922a; }
+    .footer-copy {
+      font-size: 0.85rem; color: #555; margin-bottom: 0.5rem;
+    }
+    .footer-tagline {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.8rem; color: #444;
+    }
+
+    /* --- ANIMATIONS --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">The Crown Vics</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">The Band</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#livestream">Live</a></li>
+    <li><a href="#shows">Shows</a></li>
+    <li><a href="#press">Press</a></li>
+    <li><a href="#booking">Book Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>The Crown Vics</h1>
+    <p class="hero-tagline">America's Favorite Rock 'n' Roll Dance Band. Somebody's gotta' do it!</p>
+    <div class="hero-ctas">
+      <a href="#music" class="btn btn-primary">Watch &amp; Listen</a>
+      <a href="#booking" class="btn btn-secondary">Book Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about" class="reveal">
+  <p class="eyebrow section-subtitle">About</p>
+  <h2 class="section-title">Who We Are</h2>
+  <div class="section-divider"></div>
+  <p class="about-text" id="about-text"></p>
+</section>
+
+<!-- ============================================================
+     THE BAND
+     ============================================================ -->
+<section id="band" class="reveal">
+  <p class="eyebrow section-subtitle">The Lineup</p>
+  <h2 class="section-title">The Band</h2>
+  <div class="section-divider"></div>
+  <div class="members-grid" id="members-grid"></div>
+</section>
+
+<!-- ============================================================
+     MUSIC
+     ============================================================ -->
+<section id="music" class="reveal">
+  <p class="eyebrow section-subtitle">Listen</p>
+  <h2 class="section-title">Music</h2>
+  <div class="section-divider"></div>
+
+  <!-- Spotify Album Embed -->
+  <div class="spotify-embed">
+    <iframe src="https://open.spotify.com/embed/album/1234" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <!-- Streaming Badges -->
+  <div class="streaming-badges" id="streaming-badges"></div>
+
+  <!-- YouTube Video Grid -->
+  <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: #f0e8d0;">Videos</h3>
+  <div class="video-grid" id="video-grid"></div>
+</section>
+
+<!-- ============================================================
+     TWITCH LIVESTREAM (renders only if enabled in admin)
+     ============================================================ -->
+<div id="livestream-wrapper"></div>
+
+<!-- ============================================================
+     SHOWS
+     ============================================================ -->
+<section id="shows" class="reveal">
+  <p class="eyebrow section-subtitle">Upcoming</p>
+  <h2 class="section-title">Shows</h2>
+  <div class="section-divider"></div>
+  <div id="shows-list"></div>
+</section>
+
+<!-- ============================================================
+     PRESS
+     ============================================================ -->
+<section id="press" class="reveal">
+  <p class="eyebrow section-subtitle">What They're Saying</p>
+  <h2 class="section-title">Press</h2>
+  <div class="section-divider"></div>
+  <div class="quotes-grid" id="quotes-grid"></div>
+  <div class="press-outlets">
+    <span>Ellsworth American</span>
+    <span>Maine Edge</span>
+    <span>MDI Islander</span>
+    <span>i95 Rocks</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     EPK / BOOK US
+     ============================================================ -->
+<section id="booking" class="reveal">
+  <p class="eyebrow section-subtitle">Booking &amp; EPK</p>
+  <h2 class="section-title">Book The Crown Vics</h2>
+  <div class="section-divider"></div>
+  <div class="epk-section">
+    <div class="epk-bio" id="epk-bio"></div>
+    <div class="epk-actions">
+      <a class="btn btn-disabled" data-tooltip="Coming soon">Download Press Kit</a>
+      <a class="btn btn-primary" id="booking-email-btn" href="#">Book The Crown Vics</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MAILING LIST
+     ============================================================ -->
+<section class="mailing-section reveal" id="mailing">
+  <p class="eyebrow section-subtitle">Stay Connected</p>
+  <h2 class="section-title">Get On The List</h2>
+  <div class="section-divider" style="margin: 0 auto 1.5rem;"></div>
+  <p>Get on the list. Be the first to know about shows, new music, and whatever we're up to.</p>
+  <form class="mailing-form" id="mailing-form">
+    <input type="email" placeholder="Your email address" required>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="footer-socials" id="footer-socials"></div>
+  <p class="footer-copy">&copy; 2025 The Crown Vics. All rights reserved.</p>
+  <p class="footer-tagline">America's Favorite Rock 'n' Roll Dance Band. Somebody's gotta' do it.</p>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================
+
+     localStorage key: crownvics_content
+     This key stores a JSON object with the following structure:
+     {
+       about: string,              // Main about paragraph
+       epkBio: string,             // EPK/booking bio
+       members: [{name, role}],    // Band members array
+       shows: [{date,venue,city,ticketUrl,notes}],
+       showsEnabled: boolean,      // Whether to show upcoming shows or a no-shows message
+       videos: [{title, url}],     // YouTube video list
+       livestream: {enabled, channel, headline},
+       socialLinks: {facebook, instagram, spotify, appleMusic, amazonMusic, youtube, reverbnation},
+       pressQuotes: [{quote, source}],
+       bookingEmail: string,
+       bookingMessage: string
+     }
+     ============================================================ -->
+<script>
+(function() {
+  // ---- DEFAULTS ----
+  const DEFAULTS = {
+    about: "The Crown Vics are Maine's rock 'n' roll dance band. Built on the bones of rockabilly, boogie woogie, and honky tonk — twisted through classic rock, Americana, indie, and whatever else catches their ear. They've played everywhere from Portland to Halifax, from ski resorts to theaters, from corporate events to bar stages. No long solos. No slow fades. Hardly a breath between numbers. Every night is a show. Every show is an experience.",
+    epkBio: "The Crown Vics are a high-energy rock 'n' roll dance band based in Ellsworth, Maine, with over 100 years of combined showbiz experience. Available for clubs, festivals, private events, and corporate bookings.",
+    members: [
+      { name: "Steve Peer", role: "Drums & Vocals" },
+      { name: "Drew Myers", role: "Lead Vocals & Harmonica" },
+      { name: "Jen Myers", role: "Vocals" },
+      { name: "Arend", role: "Bass" },
+      { name: "Kip", role: "Guitar" }
+    ],
+    shows: [],
+    showsEnabled: true,
+    videos: [
+      { title: "Live at The Grand", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+      { title: "Hell Yeah - Official Video", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+      { title: "Rockabilly Stomp", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+      { title: "Live at The Crooked I", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+      { title: "Boogie Woogie Breakdown", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+      { title: "Crown Vics Promo 2024", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
+    ],
+    livestream: { enabled: false, channel: "bettercallzaal", headline: "Watch Us Live" },
+    socialLinks: {
+      facebook: "https://www.facebook.com/thecrownvicsband",
+      instagram: "#",
+      spotify: "#",
+      appleMusic: "#",
+      amazonMusic: "#",
+      youtube: "#",
+      reverbnation: "https://www.reverbnation.com/thecrownvics"
+    },
+    pressQuotes: [
+      { quote: "It is simply impossible to sit still once this band starts playing.", source: "Fan review" },
+      { quote: "A full-tilt non-stop dance riot that puts a smile on the face of music lovers of all ages.", source: "WhoDoYou" },
+      { quote: "Fun meets fury.", source: "The Maine Edge" }
+    ],
+    bookingEmail: "430bayside@gmail.com",
+    bookingMessage: ""
+  };
+
+  // ---- LOAD DATA ----
+  function getData() {
+    try {
+      const stored = localStorage.getItem('crownvics_content');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        // Merge with defaults so new fields always exist
+        return Object.assign({}, DEFAULTS, parsed);
+      }
+    } catch (e) { /* fall through to defaults */ }
+    return DEFAULTS;
+  }
+
+  const data = getData();
+
+  // ---- ABOUT ----
+  document.getElementById('about-text').textContent = data.about;
+
+  // ---- BAND MEMBERS ----
+  const membersGrid = document.getElementById('members-grid');
+  data.members.forEach(function(member, i) {
+    const card = document.createElement('div');
+    card.className = 'member-card';
+    card.innerHTML =
+      '<div class="member-photo"><span class="member-number">' + String(i + 1).padStart(2, '0') + '</span></div>' +
+      '<div class="member-name">' + escapeHtml(member.name) + '</div>' +
+      '<div class="member-role">' + escapeHtml(member.role) + '</div>';
+    membersGrid.appendChild(card);
+  });
+
+  // ---- STREAMING BADGES ----
+  var badgesContainer = document.getElementById('streaming-badges');
+  var badges = [
+    { label: 'Spotify', url: data.socialLinks.spotify },
+    { label: 'Apple Music', url: data.socialLinks.appleMusic },
+    { label: 'Amazon Music', url: data.socialLinks.amazonMusic },
+    { label: 'YouTube', url: data.socialLinks.youtube }
+  ];
+  badges.forEach(function(b) {
+    var a = document.createElement('a');
+    a.href = b.url || '#';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = b.label;
+    badgesContainer.appendChild(a);
+  });
+
+  // ---- VIDEOS ----
+  var videoGrid = document.getElementById('video-grid');
+  data.videos.forEach(function(video) {
+    var videoId = extractYouTubeId(video.url);
+    if (!videoId) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'video-wrap';
+    wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+    videoGrid.appendChild(wrap);
+  });
+
+  // ---- LIVESTREAM ----
+  if (data.livestream && data.livestream.enabled) {
+    var wrapper = document.getElementById('livestream-wrapper');
+    var channel = data.livestream.channel || 'bettercallzaal';
+    var headline = data.livestream.headline || 'Watch Us Live';
+    wrapper.innerHTML =
+      '<section class="livestream-section reveal" id="livestream">' +
+        '<div class="livestream-inner">' +
+          '<p class="eyebrow section-subtitle">Streaming Now</p>' +
+          '<h2 class="section-title">' + escapeHtml(headline) + '</h2>' +
+          '<div class="section-divider"></div>' +
+          '<div class="twitch-embed">' +
+            '<iframe src="https://player.twitch.tv/?channel=' + encodeURIComponent(channel) + '&parent=thecrownvics.com" allowfullscreen></iframe>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+  }
+
+  // ---- SHOWS ----
+  var showsList = document.getElementById('shows-list');
+  if (data.showsEnabled && data.shows && data.shows.length > 0) {
+    showsList.className = 'shows-list';
+    // Sort shows by date ascending
+    var sortedShows = data.shows.slice().sort(function(a, b) {
+      return new Date(a.date) - new Date(b.date);
+    });
+    sortedShows.forEach(function(show) {
+      var card = document.createElement('div');
+      card.className = 'show-card';
+      var dateStr = show.date ? formatDate(show.date) : 'TBA';
+      var html =
+        '<div class="show-date">' + escapeHtml(dateStr) + '</div>' +
+        '<div class="show-info">' +
+          '<div class="show-venue">' + escapeHtml(show.venue || '') + '</div>' +
+          '<div class="show-city">' + escapeHtml(show.city || '') + '</div>' +
+          (show.notes ? '<div class="show-notes">' + escapeHtml(show.notes) + '</div>' : '') +
+        '</div>';
+      if (show.ticketUrl) {
+        html += '<a href="' + escapeHtml(show.ticketUrl) + '" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:0.85rem;padding:0.5rem 1.2rem;">Get Tickets</a>';
+      }
+      card.innerHTML = html;
+      showsList.appendChild(card);
+    });
+  } else {
+    showsList.innerHTML = '<div class="no-shows">No upcoming shows right now — check back soon.<br>Email us at <a href="mailto:' + escapeHtml(data.bookingEmail) + '">' + escapeHtml(data.bookingEmail) + '</a> to ask about booking.</div>';
+  }
+
+  // ---- PRESS QUOTES ----
+  var quotesGrid = document.getElementById('quotes-grid');
+  data.pressQuotes.forEach(function(pq) {
+    var el = document.createElement('div');
+    el.className = 'press-quote';
+    el.innerHTML =
+      '<blockquote>"' + escapeHtml(pq.quote) + '"</blockquote>' +
+      '<cite>— ' + escapeHtml(pq.source) + '</cite>';
+    quotesGrid.appendChild(el);
+  });
+
+  // ---- EPK / BOOKING ----
+  document.getElementById('epk-bio').textContent = data.epkBio;
+  document.getElementById('booking-email-btn').href = 'mailto:' + encodeURIComponent(data.bookingEmail);
+
+  // ---- MAILING LIST FORM ----
+  document.getElementById('mailing-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var email = this.querySelector('input[type="email"]').value;
+    window.location.href = 'mailto:' + encodeURIComponent(data.bookingEmail) + '?subject=' + encodeURIComponent('Mailing List') + '&body=' + encodeURIComponent('Please add me to the mailing list: ' + email);
+  });
+
+  // ---- FOOTER SOCIALS ----
+  var footerSocials = document.getElementById('footer-socials');
+  var socials = [
+    { label: 'FB', url: data.socialLinks.facebook },
+    { label: 'IG', url: data.socialLinks.instagram },
+    { label: 'SP', url: data.socialLinks.spotify },
+    { label: 'AM', url: data.socialLinks.appleMusic },
+    { label: 'YT', url: data.socialLinks.youtube },
+    { label: 'RN', url: data.socialLinks.reverbnation }
+  ];
+  socials.forEach(function(s) {
+    var a = document.createElement('a');
+    a.href = s.url || '#';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = s.label;
+    a.title = s.label;
+    footerSocials.appendChild(a);
+  });
+
+  // ---- NAV SCROLL BEHAVIOR ----
+  var nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 80) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // ---- HAMBURGER MENU ----
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+  // Close menu on link click
+  navLinks.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+    });
+  });
+
+  // ---- INTERSECTION OBSERVER (scroll reveal) ----
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(function(el) { observer.observe(el); });
+
+  // ---- HELPERS ----
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function extractYouTubeId(url) {
+    if (!url) return null;
+    // Handle various YouTube URL formats and bare video IDs
+    var match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/|^)([a-zA-Z0-9_-]{11})/);
+    return match ? match[1] : null;
+  }
+
+  function formatDate(dateStr) {
+    try {
+      var d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+    } catch(e) { return dateStr; }
+  }
+})();
+</script>
+</body>
+</html>
