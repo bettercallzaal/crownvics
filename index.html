@@ -553,8 +553,6 @@
     <iframe src="https://open.spotify.com/embed/artist/ARTIST_ID?utm_source=generator&theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div> -->
 
-  <!-- Streaming Badges -->
-  <div class="streaming-badges" id="streaming-badges"></div>
 
   <!-- YouTube Video Grid -->
   <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: #f0e8d0;">Videos</h3>
@@ -709,22 +707,6 @@
     membersGrid.appendChild(card);
   });
 
-  // ---- STREAMING BADGES ----
-  var badgesContainer = document.getElementById('streaming-badges');
-  var badges = [
-    { label: 'Spotify', url: data.socialLinks.spotify },
-    { label: 'Apple Music', url: data.socialLinks.appleMusic },
-    { label: 'Amazon Music', url: data.socialLinks.amazonMusic },
-    { label: 'YouTube', url: data.socialLinks.youtube }
-  ];
-  badges.forEach(function(b) {
-    var a = document.createElement('a');
-    a.href = b.url || '#';
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.textContent = b.label;
-    badgesContainer.appendChild(a);
-  });
 
   // ---- VIDEOS ----
   var videoGrid = document.getElementById('video-grid');
