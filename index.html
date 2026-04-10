@@ -7,7 +7,8 @@
   <meta name="description" content="The Crown Vics are Maine's rock 'n' roll dance band. Based in Ellsworth, ME. Book us for shows, events, and private parties.">
   <meta property="og:title" content="The Crown Vics | Maine's Favorite Rock 'n' Roll Dance Band">
   <meta property="og:description" content="The Crown Vics are Maine's rock 'n' roll dance band. Based in Ellsworth, ME. Book us for shows, events, and private parties.">
-  <meta property="og:image" content="https://thecrownvics.com/og-image.jpg">
+  <!-- og:image — replace with a real band photo URL when available -->
+  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' fill='%230a0806'%3E%3Crect width='1200' height='630'/%3E%3Ctext x='600' y='290' text-anchor='middle' font-family='sans-serif' font-size='80' font-weight='bold' fill='%23f0e8d0'%3EThe Crown Vics%3C/text%3E%3Ctext x='600' y='380' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%23c9922a'%3EAmerica%27s Favorite Rock %27n%27 Roll Dance Band%3C/text%3E%3C/svg%3E">
   <meta property="og:url" content="https://thecrownvics.com">
   <meta property="og:type" content="website">
   <!-- Favicon: inline SVG crown -->
@@ -211,21 +212,6 @@
     .btn-secondary:hover {
       background: #c9922a; color: #0a0806;
     }
-    .btn-disabled {
-      background: transparent; border-color: #555; color: #555; cursor: not-allowed;
-      position: relative;
-    }
-    .btn-disabled:hover { background: transparent; color: #555; border-color: #555; }
-
-    /* Tooltip */
-    [data-tooltip] { position: relative; }
-    [data-tooltip]:hover::after {
-      content: attr(data-tooltip);
-      position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%);
-      background: #222; color: #f0e8d0; padding: 0.4rem 0.8rem; border-radius: 4px;
-      font-size: 0.8rem; white-space: nowrap; font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 400; text-transform: none; letter-spacing: 0;
-    }
 
     /* --- ABOUT --- */
     .about-text {
@@ -273,28 +259,6 @@
     }
 
     /* --- MUSIC --- */
-    .spotify-embed {
-      width: 100%; max-width: 700px;
-      margin-bottom: 2rem;
-    }
-    .spotify-embed iframe { width: 100%; height: 352px; border: none; border-radius: 12px; }
-
-    .streaming-badges {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-    .streaming-badges a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600; font-size: 0.9rem;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      padding: 0.5rem 1.2rem;
-      border: 1px solid #333;
-      color: #c9922a;
-      transition: all 0.3s;
-    }
-    .streaming-badges a:hover {
-      border-color: #c9922a; background: rgba(201,146,42,0.1);
-    }
 
     .video-grid {
       display: grid;
@@ -418,32 +382,6 @@
       display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;
     }
 
-    /* --- MAILING LIST --- */
-    .mailing-section {
-      text-align: center;
-      padding: 5rem 2rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .mailing-section p {
-      color: #999; margin-bottom: 1.5rem; font-size: 1.05rem;
-    }
-    .mailing-form {
-      display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;
-    }
-    .mailing-form input[type="email"] {
-      flex: 1; min-width: 250px;
-      padding: 0.8rem 1rem;
-      background: #1a1714; border: 1px solid #333; color: #f0e8d0;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1rem;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-    .mailing-form input[type="email"]:focus { border-color: #c9922a; }
-    .mailing-form button {
-      font-family: 'Barlow Condensed', sans-serif;
-    }
 
     /* --- FOOTER --- */
     footer {
@@ -451,21 +389,6 @@
       padding: 3rem 2rem;
       border-top: 1px solid #1a1714;
     }
-    .footer-socials {
-      display: flex; justify-content: center; gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .footer-socials a {
-      width: 40px; height: 40px;
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid #333;
-      border-radius: 50%;
-      color: #999;
-      font-size: 0.75rem;
-      font-family: 'Special Elite', cursive;
-      transition: all 0.3s;
-    }
-    .footer-socials a:hover { border-color: #c9922a; color: #c9922a; }
     .footer-copy {
       font-size: 0.85rem; color: #555; margin-bottom: 0.5rem;
     }
@@ -491,12 +414,16 @@
 <!-- ============================================================
      NAVIGATION
      ============================================================ -->
+<noscript>
+  <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
+</noscript>
+
 <nav id="main-nav">
   <a href="#hero" class="nav-logo">The Crown Vics</a>
   <ul class="nav-links" id="nav-links">
     <li><a href="#about">The Band</a></li>
     <li><a href="#music">Music</a></li>
-    <li><a href="#livestream">Live</a></li>
+    <li id="nav-live"><a href="#livestream">Live</a></li>
     <li><a href="#shows">Shows</a></li>
     <li><a href="#press">Press</a></li>
     <li><a href="#booking">Book Us</a></li>
@@ -600,7 +527,6 @@
   <div class="epk-section">
     <div class="epk-bio" id="epk-bio"></div>
     <div class="epk-actions">
-      <a class="btn btn-disabled" data-tooltip="Coming soon">Download Press Kit</a>
       <a class="btn btn-primary" id="booking-email-btn" href="#">Book The Crown Vics</a>
     </div>
   </div>
@@ -611,7 +537,7 @@
      FOOTER
      ============================================================ -->
 <footer>
-  <p class="footer-copy">&copy; 2025 The Crown Vics. All rights reserved.</p>
+  <p class="footer-copy">&copy; 2026 The Crown Vics. All rights reserved.</p>
   <p class="footer-tagline">America's Favorite Rock 'n' Roll Dance Band. Somebody's gotta' do it.</p>
 </footer>
 
@@ -701,7 +627,7 @@
     const card = document.createElement('div');
     card.className = 'member-card';
     card.innerHTML =
-      '<div class="member-photo"><span class="member-number">' + String(i + 1).padStart(2, '0') + '</span></div>' +
+      '<div class="member-photo"><svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div>' +
       '<div class="member-name">' + escapeHtml(member.name) + '</div>' +
       '<div class="member-role">' + escapeHtml(member.role) + '</div>';
     membersGrid.appendChild(card);
@@ -720,10 +646,12 @@
   });
 
   // ---- LIVESTREAM ----
+  var navLive = document.getElementById('nav-live');
   if (data.livestream && data.livestream.enabled) {
     var wrapper = document.getElementById('livestream-wrapper');
     var channel = data.livestream.channel || 'bettercallzaal';
     var headline = data.livestream.headline || 'Watch Us Live';
+    var twitchParent = location.hostname || 'thecrownvics.com';
     wrapper.innerHTML =
       '<section class="livestream-section reveal" id="livestream">' +
         '<div class="livestream-inner">' +
@@ -731,10 +659,13 @@
           '<h2 class="section-title">' + escapeHtml(headline) + '</h2>' +
           '<div class="section-divider"></div>' +
           '<div class="twitch-embed">' +
-            '<iframe src="https://player.twitch.tv/?channel=' + encodeURIComponent(channel) + '&parent=thecrownvics.com" allowfullscreen></iframe>' +
+            '<iframe src="https://player.twitch.tv/?channel=' + encodeURIComponent(channel) + '&parent=' + encodeURIComponent(twitchParent) + '" allowfullscreen loading="lazy"></iframe>' +
           '</div>' +
         '</div>' +
       '</section>';
+  } else {
+    // Hide "Live" nav link when livestream is disabled
+    if (navLive) navLive.style.display = 'none';
   }
 
   // ---- SHOWS ----
