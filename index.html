@@ -135,6 +135,10 @@
       text-align: center;
       max-width: 100%; padding: 2rem;
       overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 60%, rgba(201, 39, 42, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 40%, rgba(201, 146, 42, 0.08) 0%, transparent 50%),
+        linear-gradient(180deg, #0a0806 0%, #1a1208 40%, #0a0806 100%);
     }
     /* Scanline overlay */
     .hero::before {
@@ -167,7 +171,10 @@
     .hero h1 {
       font-size: clamp(4rem, 12vw, 10rem);
       color: #f0e8d0;
-      text-shadow: 0 0 60px rgba(201, 39, 42, 0.3);
+      text-shadow:
+        0 0 80px rgba(201, 39, 42, 0.4),
+        0 0 160px rgba(201, 39, 42, 0.2),
+        0 2px 4px rgba(0,0,0,0.8);
       margin-bottom: 0.5rem;
     }
     .hero-tagline {
