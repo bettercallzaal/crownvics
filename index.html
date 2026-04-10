@@ -799,12 +799,6 @@
   document.getElementById('epk-bio').textContent = data.epkBio;
   document.getElementById('booking-email-btn').href = 'mailto:' + encodeURIComponent(data.bookingEmail);
 
-  // ---- MAILING LIST FORM ----
-  document.getElementById('mailing-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var email = this.querySelector('input[type="email"]').value;
-    window.location.href = 'mailto:' + encodeURIComponent(data.bookingEmail) + '?subject=' + encodeURIComponent('Mailing List') + '&body=' + encodeURIComponent('Please add me to the mailing list: ' + email);
-  });
 
 
   // ---- NAV SCROLL BEHAVIOR ----
