@@ -606,7 +606,6 @@
      FOOTER
      ============================================================ -->
 <footer>
-  <div class="footer-socials" id="footer-socials"></div>
   <p class="footer-copy">&copy; 2025 The Crown Vics. All rights reserved.</p>
   <p class="footer-tagline">America's Favorite Rock 'n' Roll Dance Band. Somebody's gotta' do it.</p>
 </footer>
@@ -800,25 +799,6 @@
     window.location.href = 'mailto:' + encodeURIComponent(data.bookingEmail) + '?subject=' + encodeURIComponent('Mailing List') + '&body=' + encodeURIComponent('Please add me to the mailing list: ' + email);
   });
 
-  // ---- FOOTER SOCIALS ----
-  var footerSocials = document.getElementById('footer-socials');
-  var socials = [
-    { label: 'FB', url: data.socialLinks.facebook },
-    { label: 'IG', url: data.socialLinks.instagram },
-    { label: 'SP', url: data.socialLinks.spotify },
-    { label: 'AM', url: data.socialLinks.appleMusic },
-    { label: 'YT', url: data.socialLinks.youtube },
-    { label: 'RN', url: data.socialLinks.reverbnation }
-  ];
-  socials.forEach(function(s) {
-    var a = document.createElement('a');
-    a.href = s.url || '#';
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.textContent = s.label;
-    a.title = s.label;
-    footerSocials.appendChild(a);
-  });
 
   // ---- NAV SCROLL BEHAVIOR ----
   var nav = document.getElementById('main-nav');
